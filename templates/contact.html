@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<form method="post" action='/contact' enctype = "multipart/form-data">
+{% csrf_token %}
+    <div class="mb-3">
+      <label for="name" class="form-label">Email address</label>
+      <input type="text" class="form-control" id="name"  name ="name" aria-describedby="emailHelp">
+      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+      <label for="number" class="form-label">Number</label>
+      <input type="text" class="form-control" id="number" name ="number">
+    </div>
+    <div class="mb-3 form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <div>
+        <label for="image" class="form-label">Large file input example</label>
+        <input class="form-control form-control-lg" id="formFileLg" type="file" name = "image">
+      </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock body %}

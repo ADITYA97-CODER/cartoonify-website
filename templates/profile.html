@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>{{user.username}}</h1>
+<a href="/profile/{{user.id}}/addreview">add a review</a>
+{% if create == 'yes' %}
+<form method="post" action="/profile/{{user.id}}/" enctype = "multipart/form-data">
+    {% csrf_token %}
+        <div class="mb-3">
+          <label for="review" class="form-label">review</label>
+          <input type="text" class="form-control"   name ="review">
+        
+        </div>
+        <div class="mb-3">
+          <label for="rating" class="form-label">rating</label>
+          <input type="number" class="form-control"  name ="rating">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      {% endif %}
+<h2>reviews</h2>
+    {% for x in reviews %}
+    <h1>{{x.content}}</h1>
+    
+    
+    {% endfor %}
+
+
+
+{% endblock body %}
+
+
+
+

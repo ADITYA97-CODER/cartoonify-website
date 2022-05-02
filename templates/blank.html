@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+{% if m == 'yes' %}
+{% for x in messages %}
+<h1>{{x.mess}}</h1>
+{% endfor %}
+{% else %}
+<h1>No messages</h1>
+{% endif %}
+
+
+
+
+{% endblock body %}
