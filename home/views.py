@@ -104,4 +104,5 @@ def contact(request ):
 
     return render(request , 'contact.html')
 
-    
+def firs(request):
+    return render(request , 'first.html')
