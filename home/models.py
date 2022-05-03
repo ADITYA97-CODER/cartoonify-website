@@ -1,4 +1,4 @@
-from asyncio.windows_events import NULL
+
 from pyexpat import model
 from django.db import models
 
@@ -27,7 +27,7 @@ class profiles(models.Model):
     user = models.OneToOneField(User , on_delete=models.CASCADE, primary_key= True, default=None)  
     names = models.CharField(max_length=211, null=True,default='none')
     pic = models.ImageField(upload_to = 'images/',null= True , blank = True)
-    bio = models.CharField(max_length=200 , default=NULL)
+    bio = models.CharField(max_length=200 ,null=True)
 
 
 class reviews(models.Model):
