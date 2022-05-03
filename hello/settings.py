@@ -9,9 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-import django_heroku
 
-import dj_database_url
 from pathlib import Path
 import os
 
@@ -26,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-a^3zxzv3fg920(x@fy8cv%u3q_^ht^1m$*agl-4i*w1*syi**b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['viewsbook.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -133,5 +131,6 @@ STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_STORAGE = 'whitenoise.storage..CompressedManifestStaticFilesStorage'
-django_heroku.settings(locals())
+#STATICFILES_STORAGE = 'whitenoise.storage..CompressedManifestStaticFilesStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media/images')
