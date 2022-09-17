@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+ .lis{
+   display:flex;
+ }
+.lol{
+  display: flex;
+    flex-direction: row;
+    
+}
+}
+.containr{
+  display:flex;
+  flex-direction:column;
+}
+.containr img{
+  height:500px;
+  width:900px;
+}
+.scroll{
+  display: flex;
+    flex-direction: column;
+    margin: 114px auto;
+}
+.lef{
+  margin:50px;
+}
+.itm{
+  padding:15px
+
+}
+  </style>
+  {% endblock style %}
+  {% block profile %}
+  /profile/{{host.id}}
+  {% endblock profile %}
+
+
+{% block body %}
+{% if request.user.is_authenticated %}
+<p> {{request.user}}</p>
+<a href="{% url 'logout' %}"> LOgout</a>
+<a href = "/contact">POST</a>
+<a href="messages/{{host.id}}">messages</a>
+{% endif %}
+<div class = "lol container">
+  <div class = "lef">
+    {% for x in profiles  %}
+   <div class="card" style="width: 18rem;">
+       <img src="{{x.pic.url}}" class="card-img-top img-fluid" alt="...">
+      <div class="card-body">
+      <h5 class="card-title">{{x.user.username}}</h5>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+      {% endfor %}
+    </div>
+ <div class="scroll">
+    {% for p in items %}
+  
+   <div class="containr">
+    <div class="itm"> <a href="profile/{{p.host.id}}">{{p.host.username}}---</div>
+     <div class="itm"> {{p.number}}</div>
+      <div class= "itm"><img src="{{p.image.url}}"> </div>
+   </div>
+ 
+
+
+
+
+{% endfor %}
+</div>
+</div>
+{% endblock body %}
